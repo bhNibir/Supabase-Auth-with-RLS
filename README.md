@@ -23,8 +23,8 @@ This is a simple demo app with Supabase Auth, forget password and save note with
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/bhnibir/secure-notes.git
-cd secure-notes
+git clone https://github.com/bhNibir/Supabase-Auth-with-RLS.git
+cd Supabase-Auth-with-RLS
 npm install
 ```
 
@@ -102,13 +102,3 @@ src/
 3. Add the same env vars (`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`) in the Vercel project settings
 4. Deploy
 
-## Future Roadmap
-
-- [ ] Edit existing notes
-- [ ] Rich text / markdown support
-- [ ] Note search and filtering
-- [ ] Tags / categories
-- [ ] Share notes with other users (read-only)
-- [ ] Real-time sync across tabs/devices
-- [ ] Dark/light theme toggle
-- [ ] Mobile-optimized PWA
