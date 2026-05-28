@@ -78,19 +78,35 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Project Structure
 
 ```
-src/
-├── lib/
-│   └── supabaseClient.ts      # Supabase client (single instance)
-├── services/
-│   ├── auth.ts                 # signUp, signIn, signOut, getSession, resetPasswordForEmail, updatePassword
-│   └── notes.ts                # listNotes, createNote, deleteNote
-└── app/
-    ├── layout.tsx              # Root layout
-    ├── page.tsx                # Redirects to /login
-    ├── login/page.tsx          # Auth page
-    ├── forgot-password/page.tsx # Forgot password request page
-    ├── reset-password/page.tsx  # Reset password confirmation page
-    └── notes/page.tsx          # Notes CRUD page
+.
+├── src/
+│   ├── app/
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── layout.tsx              # Root layout
+│   │   ├── page.tsx                # Redirects to /login
+│   │   ├── login/
+│   │   │   └── page.tsx            # Auth page (with Demo login)
+│   │   ├── forgot-password/
+│   │   │   └── page.tsx            # Forgot password request page
+│   │   ├── reset-password/
+│   │   │   └── page.tsx            # Reset password confirmation page
+│   │   └── notes/
+│   │       └── page.tsx            # Notes CRUD page
+│   ├── lib/
+│   │   └── supabaseClient.ts      # Supabase client initialization
+│   └── services/
+│       ├── auth.ts                 # Auth service layer (signIn, signUp, signOut, etc.)
+│       └── notes.ts                # Notes service layer (listNotes, createNote, deleteNote)
+├── public/
+│   └── (static assets)
+├── .env.example                # Example environment variables
+├── eslint.config.mjs           # ESLint configuration
+├── next.config.ts              # Next.js configuration
+├── package.json                # Project dependencies and scripts
+├── postcss.config.mjs          # PostCSS configuration
+├── tsconfig.json               # TypeScript configuration
+└── README.md                   # Documentation
 ```
 
 > **Note:** The UI never calls Supabase directly — all data access goes through the service layer in `src/services/`.
