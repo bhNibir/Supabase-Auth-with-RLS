@@ -46,6 +46,20 @@ export default function LoginPage() {
     }
   }
 
+  async function handleDemoSignIn() {
+    setLoading(true);
+    setError(null);
+    setMessage(null);
+    try {
+      await signIn("demo@example.com", "123456");
+      router.push("/notes");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Demo sign in failed");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-950 px-4">
       <div className="w-full max-w-sm space-y-8">
@@ -64,6 +78,21 @@ export default function LoginPage() {
         </div>
 
         <form className="space-y-4" onSubmit={handleSignIn}>
+          <button
+            type="button"
+            onClick={handleDemoSignIn}
+            disabled={loading}
+            className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-sm font-semibold text-emerald-400 transition hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {loading ? "Loading…" : "Sign In with Demo Account"}
+          </button>
+
+          <div className="relative flex py-1 items-center">
+            <div className="flex-grow border-t border-zinc-800"></div>
+            <span className="flex-shrink mx-4 text-zinc-500 text-xs font-semibold uppercase tracking-wider">Or</span>
+            <div className="flex-grow border-t border-zinc-800"></div>
+          </div>
+
           <div>
             <label
               htmlFor="email"
